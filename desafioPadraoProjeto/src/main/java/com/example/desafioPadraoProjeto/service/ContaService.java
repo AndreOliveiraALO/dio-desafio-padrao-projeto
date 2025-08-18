@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.desafioPadraoProjeto.model.Conta;
 import com.example.desafioPadraoProjeto.observer.ContaEvent;
 import com.example.desafioPadraoProjeto.repository.ContaRepository;
+import com.example.desafioPadraoProjeto.utils.ContaEventType;
 
 @Service
 public class ContaService {
@@ -23,7 +24,7 @@ public class ContaService {
 
     public Conta criarConta(Conta conta){
         Conta novaConta = contaRepository.save(conta);
-        eventPublisher.publishEvent(new ContaEvent(novaConta, ContaEvent.TipoEvento.CRIACAO));
+        eventPublisher.publishEvent(new ContaEvent(this, novaConta, ContaEventType.CRIACAO));
         return novaConta;    
     }
 
