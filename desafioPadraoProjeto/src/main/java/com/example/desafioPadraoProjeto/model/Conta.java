@@ -1,10 +1,20 @@
 package com.example.desafioPadraoProjeto.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Conta {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,12 +22,4 @@ public class Conta {
     private String numeroConta;
     private String agencia;
     private String titular;
-
-    public Long getId() { return id; }
-    public String getNumeroConta() { return numeroConta; }
-    public void setNumeroConta(String numeroConta) { this.numeroConta = numeroConta; }
-    public String getAgencia() { return agencia; }
-    public void setAgencia(String agencia) { this.agencia = agencia; }
-    public String getTitular() { return titular; }
-    public void setTitular(String titular) { this.titular = titular; }
 }

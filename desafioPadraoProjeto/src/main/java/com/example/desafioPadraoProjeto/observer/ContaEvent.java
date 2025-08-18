@@ -1,20 +1,18 @@
 package com.example.desafioPadraoProjeto.observer;
 
+import org.springframework.context.ApplicationEvent;
+
 import com.example.desafioPadraoProjeto.model.Conta;
+import com.example.desafioPadraoProjeto.utils.ContaEventType;
 
-public class ContaEvent {
-
-    public enum TipoEvento{
-        CRIACAO,
-        SAQUE,
-        DEPOSITO
-    }
+public class ContaEvent extends ApplicationEvent {
 
     public final Conta conta;
 
-    public final TipoEvento tipoEvento;
+    public final ContaEventType tipoEvento;
 
-    public ContaEvent(Conta conta, TipoEvento tipoEvento){
+    public ContaEvent(Object source, Conta conta, ContaEventType tipoEvento){
+        super(source);
         this.conta = conta;
         this.tipoEvento = tipoEvento;
     }
@@ -23,7 +21,7 @@ public class ContaEvent {
         return this.conta;
     }
 
-    public TipoEvento getTipoEvento(){
+    public ContaEventType getTipoEvento(){
         return this.tipoEvento;
     }
 
