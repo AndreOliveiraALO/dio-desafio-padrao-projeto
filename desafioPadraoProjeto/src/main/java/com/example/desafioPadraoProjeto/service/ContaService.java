@@ -13,8 +13,7 @@ import com.example.desafioPadraoProjeto.utils.ContaEventType;
 @Service
 public class ContaService {
 
-    private final ContaRepository contaRepository;
-
+    private final ContaRepository contaRepository;    
     private final ApplicationEventPublisher eventPublisher;
 
     public ContaService(ContaRepository contaRepository, ApplicationEventPublisher eventPublisher){
