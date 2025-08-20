@@ -1,10 +1,8 @@
-# 💡 Desafio Padrões de Projeto – Conta Bancária
+# 💡 Desafio Padrões de Projeto – API de Conta Bancária
 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/AndreOliveiraALO/dslist/blob/main/LICENSE)
 
-Este projeto foi desenvolvido como prática de **padrões de projeto em Java com Spring Boot**, simulando uma aplicação simples de **conta bancária** com persistência em banco e envio de notificações.  
-
-O foco principal está nos padrões **Observer** e **Factory**, mas também foram aplicados outros padrões clássicos que enriquecem a arquitetura.
+Este projeto foi desenvolvido como parte de um **desafio de Design Patterns**, com foco principal na aplicação dos padrões **Observer** e **Factory Method**. O objetivo é demonstrar, na prática, como aplicar padrões de projeto em um cenário realista de uma API bancária.
 
 ---
 
@@ -46,6 +44,31 @@ O foco principal está nos padrões **Observer** e **Factory**, mas também fora
 - **Dependency Injection (IoC)** → Injeção de dependências com Spring.  
 
 ---
+
+## 📑 Documentação e Acesso
+
+A aplicação foi documentada com **OpenAPI/Swagger**, permitindo explorar e testar os endpoints de forma interativa:
+
+🔗 **Swagger UI:** [http://localhost:8081/swagger-ui/index.html](http://localhost:8081/swagger-ui/index.html)
+
+### ⚙️ Configuração do Banco de Dados H2
+
+O projeto utiliza banco de dados **em memória (H2)** para facilitar os testes.
+As credenciais estão configuradas no `application.properties`:
+
+* **URL JDBC:** `jdbc:h2:mem:testdb`
+* **Usuário:** `sa`
+* **Senha:** *(em branco)*
+* **Console Web:** [http://localhost:8081/h2-console](http://localhost:8081/h2-console)
+
+No console H2, ao acessar a URL, lembre-se de selecionar o **Driver Class**:
+
+```
+org.h2.Driver
+```
+
+---
+
 
 ## 📂 Estrutura do Projeto
 ```
@@ -95,15 +118,12 @@ src/main/java/com/exemplo/desafioPadraoProjeto
 ---
 
 ## ✅ Exemplo de Execução
-Ao criar uma conta, se `app.notification.email=true`, no console será exibido:
-```
-[EMAIL] Conta criada com sucesso para o cliente: João da Silva
-```
 
-Se `app.notification.sms=true`, será exibido:
-```
-[SMS] Conta criada com sucesso para o cliente: João da Silva
-```
+1. Clone o repositório.
+2. Configure o `application.properties` conforme necessário.
+3. Execute a aplicação com `mvn spring-boot:run`.
+4. Acesse o Swagger em [http://localhost:8081/swagger-ui/index.html](http://localhost:8081/swagger-ui/index.html).
+5. Teste os endpoints e acompanhe as notificações no console.
 
 ---
 
